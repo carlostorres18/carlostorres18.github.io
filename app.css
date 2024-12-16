@@ -11,30 +11,29 @@ h1{
     
 }
 
-.title-about-me{
+.whoami{
+    color: cyan;
+    font-family: Consolas;
+    font-size: 25px;
+}
+
+.my-coding-journey{
     color: cyan;
     font-family: Consolas;
     font-size: 20px;
+    #coding-journey{
+        color: cyan;
+        font-size: 30px;
+    }
     p{
         color: violet;
     }
 }
 
 .my-resume{
-    color: lightcoral;
+    color: violet;
     font-size: 30px;
     font-family: Consolas;
-}
-
-.website-usage{
-    color: cyan;
-    font-size: 20px;
-    font-family: Consolas;
-    p{
-        color: violet;
-        font-family: Consolas;
-        font-size: 25px;
-    }
 }
 
 .life-updates{
