@@ -1,58 +1,128 @@
+/* Base and theme */
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+    /* Grayscale palette */
+    --bg: #0a0a0a;           /* near-black background */
+    --bg-elev: #111111;      /* elevated surfaces */
+    --text: #f2f2f2;         /* primary text */
+    --text-muted: #a3a3a3;   /* secondary text */
+    --border: #2a2a2a;       /* borders/dividers */
+    --accent-1: #e5e5e5;     /* headings / highlights (light gray) */
+    --accent-2: #c7c7c7;     /* subtle accents (mid gray) */
+}
+
 body{
-    color: white;
-    background-color: black;
-    
+    margin: 0;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.6;
 }
 
 h1{
-    color: violet;
+    color: var(--accent-1);
     font-family: Consolas;
     font-size: 50px;
     
 }
 
 .whoami{
-    color: cyan;
+    color: var(--accent-2);
     font-family: Consolas;
     font-size: 25px;
 }
 
 .my-coding-journey{
-    color: cyan;
+    color: var(--accent-2);
     font-family: Consolas;
     font-size: 20px;
-    #coding-journey{
-        color: cyan;
-        font-size: 30px;
-    }
-    p{
-        color: violet;
-    }
+}
+.my-coding-journey #coding-journey{
+    color: var(--accent-2);
+    font-size: 30px;
+}
+.my-coding-journey p{
+    color: var(--accent-1);
 }
 
 .my-resume{
-    color: violet;
+    color: var(--accent-1);
     font-size: 30px;
     font-family: Consolas;
 }
 
 .life-updates{
-    color: darkcyan;
+    color: var(--text-muted);
     font-family: Consolas;
     font-size: 20px;
-    
-    summary{
-        list-style: none;
-    }
-    summary::before{
-        content: '';
-        background-image: url('programming.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        margin-right: 8px;
-        transition: transform 0.3s ease;
-    }
+}
+.life-updates summary{
+    list-style: none;
+    cursor: pointer;
+}
+.life-updates summary::before{
+    content: '';
+    background-image: url('programming.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.life-updates details { margin: 0 0 1rem; }
+
+/* Layout and spacing */
+.container { max-width: 70ch; margin-inline: auto; padding: 2rem 1rem; }
+section { margin: 2rem 0; }
+p { margin: 0 0 1rem; }
+
+/* Focus visibility for accessibility */
+a:focus-visible, summary:focus-visible {
+    outline: 2px dashed var(--accent-2);
+    outline-offset: 4px;
+}
+
+/* Pills, tags, filters */
+.pill-list { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: .5rem 0 1rem; }
+.pill-list li { padding: .25rem .6rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev); }
+
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: .5rem 0 1rem; }
+.tag { padding: .3rem .7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev); color: var(--text); font: inherit; cursor: pointer; }
+.tag.active { border-color: var(--accent-2); background: var(--bg-elev); color: var(--text); }
+button.tag { appearance: none; -webkit-appearance: none; }
+
+/* Timeline */
+.timeline { padding-left: 1rem; }
+.timeline li { margin: .25rem 0; }
+
+/* Align new sections with existing aesthetic */
+.interests, .ai-ml { color: var(--accent-2); font-family: Consolas; font-size: 20px; }
+.interests h2, .ai-ml h2 { color: var(--accent-1); font-family: Consolas; }
+.interests p, .ai-ml p { color: var(--accent-1); }
+
+.interests .pill-list li { 
+    border-color: var(--accent-2);
+    color: var(--accent-2);
+    background: transparent;
+}
+.interests .pill-list li:hover { 
+    border-color: var(--accent-1); 
+    color: var(--accent-1);
+}
+
+.filters .tag { font-family: Consolas; }
+.ai-ml .timeline { border-left: none; }
+.ai-ml .timeline li::marker { color: var(--accent-2); font-weight: 700; }
+
+/* Title wave animation */
+.wave-title { display: inline-block; }
+.wave-title .wave-char { display: inline-block; will-change: transform; animation: title-wave 1.6s ease-in-out infinite; animation-delay: calc(var(--i) * 0.08s); }
+@keyframes title-wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .wave-title .wave-char { animation: none; }
 }

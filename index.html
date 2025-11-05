@@ -1,59 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal site of Carlos Torres: projects, life updates, and resume.">
     <title>Carlos Torres Personal Website</title>
     <link rel="stylesheet" href="app.css">
     <link rel="icon" href="coding.png">
 </head>
 <body>
-    <h1>Hello, I'm Carlos!</h1>
-    <section class="whoami">
-        <p>I am a Computer Science Student at the University of Texas of the Rio Grande Valley (UTRGV).</p>
-        <p>I enjoy running, watching sci-fi and fantasy movies, playing videogames, and spending time with my family and friends.</p>
-        <p>On this website you will be able to learn about me, read my life updates on recent developments of my life <br>
-        and see my most recent project and its development.</p>
-    </section>
-    <section class="my-coding-journey">
-            <p id="coding-journey">👨🏼‍💻 Carlos' Coding Journey</p>
-            <p>I started learning about Programming in my senior year of High School, and was eager to learn more about it, <br>
-            so I applied to my local University with Computer Science as my Major.
-            <br><br>
-            So far I have faced many hardships in this journey but I don't have any regrets.<br>
+    <main class="container">
+        <h1 class="wave-title">Hello, I'm Carlos!</h1>
+
+        <section class="whoami">
+            <p>I am a Computer Science Student at the University of Texas of the Rio Grande Valley (UTRGV).</p>
+            <p>I enjoy running, watching sci-fi and fantasy movies, playing videogames, and spending time with my family, friends and my dog Maya.</p>
+            <p>On this website you will be able to learn about me, read my life updates on recent developments of my life <br>
+            and see my most recent project and its development.</p>
+        </section>
+
+        <section class="interests">
+            <h2>Interests & Hobbies</h2>
+            <ul class="pill-list">
+                <li>Running</li>
+                <li>Sci-Fi & Fantasy</li>
+                <li>Videogames</li>
+                <li>Time with Family & Friends</li>
+            </ul>
+            <p>Current goals: run a 5K under 25 minutes, Deploy an AI Application, and Watch Dune for the first time.</p>
+        </section>
+
+        <section class="my-coding-journey">
+            <h2 id="coding-journey">Carlos' Coding Journey</h2>
+            <p>I started learning about Programming in my senior year of High School, and was eager to learn more about it,
+            so I applied to my local University with Computer Science as my major.</p>
+            <p>So far I have faced many hardships in this journey but I don't have any regrets.<br>
             I am going to do my very best to have fun, and learn more about Programming.</p>
-    </section>
-    <br><br>
-    <section class="my-resume">
-        <p>This is my resume:</p>
-        <a href="Carlos_Torres_Resume (1).pdf" target="_blank">My resume</a>
-    </section>
-    <br><br><br>
-    <section class="life-updates">
-        <h3>LIFE/CODING UPDATES:</h3>
-        <details>
-            <summary>Update: December 16, 2024</summary>
-            <p>Finals week was last week, now I am officially out of school, I ended up passing all of my classes.</p>
-            <p>Right now my main focus is to prepare for my next set of classes and what type of topics the class will cover.<br>
-            I will continue to also focus on working on this website and personal projects as I have already started a CSS course, and also a JavaScript course.</p>
-        </details>
-        <br>
-        <details>
-            <summary>Update: December 05, 2024</summary>
-            <p>My semester just finished yesterday (Dec 04) and the last thing i have to do is just a security project. <br><br> After that I will be working now more on this Personal Website and Personal Projects.</p>
-            <p>I also added Icons to the website, so the LIFE UPDATE section has icons, and also the title page.</p>
-        </details>
-        <br>
-        <details>
-            <summary>Update: May 20, 2024</summary>
-            <p>I got out of school for at least 2 weeks now, and had been on a break from coding. I decided to start working again on the website.</p>
-            <p>I have realized that it is time for me to start getting serious and lock in (lol) but anyways I will add a JavaScript to the folder so that I can decorate this website to my liking.</p>
-            <p>Update on application: I am still working on it, just came to a mental block on what steps to take next, but I'll be fine, I just have to devote my attention to it. Will update when something interesting happens.</p>
-        </details>
-        <br>
-        <details>
-            <summary>Update: April 14, 2024</summary>
-            <p>I started developing a desktop application using PyQt6, basically desktops development but with Python</p>
-            <p>The application is a password manager, something basic so I can get started on what I want to do</p>
-        </details>
-    </section>
+        </section>
+
+        <section class="ai-ml">
+            <h2>AI/ML Journey</h2>
+            <ol class="timeline">
+                <li><strong>Sep 2025</strong> - Started Online Course CS 188 Berkeley - Introduction to Artificial Intelligence.</li>
+                <li><strong>Nov 2025</strong> - Finished MIT algorithms book and took a special interest in Deep Learning section of the book.</li>
+                <li><strong>Next</strong> - Start getting hands-on experience with AI programs.</li>
+            </ol>
+        </section>
+
+        <section class="my-resume">
+            <p>This is my resume: <a href="Carlos Torres Resume (10_01_25).pdf" target="_blank" rel="noopener noreferrer">resume</a></p>
+        </section>
+
+        <section class="life-updates">
+            <h2>Updates</h2>
+            <div class="filters">
+                <button class="tag active" data-filter="all">All</button>
+                <button class="tag" data-filter="ai">AI</button>
+                <button class="tag" data-filter="web">Web</button>
+                <button class="tag" data-filter="school">School</button>
+                <button class="tag" data-filter="personal">Personal</button>
+                <button class="tag" data-filter="python">Python</button>
+            </div>
+            <details data-tags="ai,personal,school">
+                <summary>Update: November 04, 2025</summary>
+                <p>WOW Almost a whole year lol (great going me from the past). I just wanted to update you all with my life update.</p>
+                <p>Everything is going great, I am in my last semesters of University, I have an expected graduation date for Fall 2026, so in 1 year I will be graduating. This is both exciting and scary to think about.<br>
+                    I have sign up to my next set of courses, now I will be diving head-first (lol) into AI related Courses. I have registered for Automata, AI Application Agents, and Digital Visions. I honestly can't wait to get started on them.
+                    Right now I am in a SWE Class where we were tasked to build our own web-application, and I am one of the lead Developers (WOOP WOOP). So yeah, expect more from me soon in the next update.
+                </p>
+            </details>
+            <details data-tags="school,web">
+                <summary>Update: December 16, 2024</summary>
+                <p>Finals week was last week, now I am officially out of school, I ended up passing all of my classes.</p>
+                <p>Right now my main focus is to prepare for my next set of classes and what type of topics the class will cover.<br>
+                I will continue to also focus on working on this website and personal projects as I have already started a CSS course, and also a JavaScript course.</p>
+            </details>
+            <details data-tags="web,personal">
+                <summary>Update: December 05, 2024</summary>
+                <p>My semester just finished yesterday (Dec 04) and the last thing i have to do is just a security project. <br><br> After that I will be working now more on this Personal Website and Personal Projects.</p>
+                <p>I also added Icons to the website, so the LIFE UPDATE section has icons, and also the title page.</p>
+            </details>
+            <details data-tags="web,personal">
+                <summary>Update: May 20, 2024</summary>
+                <p>I got out of school for at least 2 weeks now, and had been on a break from coding. I decided to start working again on the website.</p>
+                <p>I have realized that it is time for me to start getting serious and lock in (lol) but anyways I will add a JavaScript to the folder so that I can decorate this website to my liking.</p>
+                <p>Update on application: I am still working on it, just came to a mental block on what steps to take next, but I'll be fine, I just have to devote my attention to it. Will update when something interesting happens.</p>
+            </details>
+            <details data-tags="python,desktop,project">
+                <summary>Update: April 14, 2024</summary>
+                <p>I started developing a desktop application using PyQt6, basically desktops development but with Python</p>
+                <p>The application is a password manager, something basic so I can get started on what I want to do</p>
+            </details>
+        </section>
+    </main>
+    <script src="main.js" defer></script>
 </body>
 </html>
