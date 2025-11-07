@@ -16,6 +16,7 @@ body{
     color: var(--text);
     background-color: var(--bg);
     line-height: 1.6;
+    font-family: 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
 h1{
