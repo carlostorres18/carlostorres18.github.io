@@ -127,3 +127,84 @@ button.tag { appearance: none; -webkit-appearance: none; }
 @media (prefers-reduced-motion: reduce) {
     .wave-title .wave-char { animation: none; }
 }
+
+.rl-work {
+    color: var(--accent-2);
+    font-family: Consolas;
+    font-size: 20px;
+}
+
+.rl-work h2,
+.rl-work h3 {
+    color: var(--accent-1);
+    font-family: Consolas;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 1.25rem;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    background: var(--bg-elev);
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.compact-list {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.compact-list li {
+    margin: 0.35rem 0;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0.75rem 0 1.25rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    background: var(--bg-elev);
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.7rem;
+    text-align: left;
+}
+
+.data-table th {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.media {
+    margin: 0;
+}
+
+.media img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.media figcaption {
+    margin-top: 0.5rem;
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
