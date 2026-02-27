@@ -16,25 +16,29 @@ body{
     color: var(--text);
     background-color: var(--bg);
     line-height: 1.6;
-    font-family: 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
 h1{
     color: var(--accent-1);
-    font-family: Consolas;
+    font-family: Consolas, 'Liberation Mono', 'Courier New', monospace;
     font-size: 50px;
     
 }
 
+.tagline {
+    margin: 0.5rem 0 1.25rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
 .whoami{
     color: var(--accent-2);
-    font-family: Consolas;
     font-size: 25px;
 }
 
 .my-coding-journey{
     color: var(--accent-2);
-    font-family: Consolas;
     font-size: 20px;
 }
 .my-coding-journey #coding-journey{
@@ -48,12 +52,10 @@ h1{
 .my-resume{
     color: var(--accent-1);
     font-size: 30px;
-    font-family: Consolas;
 }
 
 .life-updates{
     color: var(--text-muted);
-    font-family: Consolas;
     font-size: 20px;
 }
 .life-updates summary{
@@ -62,7 +64,7 @@ h1{
 }
 .life-updates summary::before{
     content: '';
-    background-image: url('programming.png');
+    background-image: url('../img/programming.png');
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
@@ -74,10 +76,20 @@ h1{
 
 .life-updates details { margin: 0 0 1rem; }
 
+.update-subtitle {
+    margin: 0.4rem 0 0.9rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
 /* Layout and spacing */
 .container { max-width: 70ch; margin-inline: auto; padding: 2rem 1rem; }
-section { margin: 2rem 0; }
+section { margin: 2rem 0; padding-top: 2rem; border-top: 1px solid var(--border); }
+.container > section:first-of-type { border-top: 0; padding-top: 0; }
 p { margin: 0 0 1rem; }
+
+a { color: var(--accent-2); text-underline-offset: 0.2em; }
+a:hover { color: var(--accent-1); }
 
 /* Focus visibility for accessibility */
 a:focus-visible, summary:focus-visible {
@@ -85,11 +97,53 @@ a:focus-visible, summary:focus-visible {
     outline-offset: 4px;
 }
 
+button:focus-visible {
+    outline: 2px dashed var(--accent-2);
+    outline-offset: 4px;
+}
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.site-nav a {
+    padding: 0.25rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: Consolas, 'Liberation Mono', 'Courier New', monospace;
+    color: var(--text);
+}
+
+.site-nav a.brand {
+    padding: 0.25rem 0.7rem;
+    border-color: var(--border);
+    background: var(--bg-elev);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.site-nav a:hover {
+    border-color: var(--border);
+    background: var(--bg-elev);
+}
+
 /* Pills, tags, filters */
 .pill-list { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: .5rem 0 1rem; }
 .pill-list li { padding: .25rem .6rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev); }
 
 .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: .5rem 0 1rem; }
+.life-updates [data-action="toggle-updates"] { margin: 0.25rem 0 1rem; }
 .tag { padding: .3rem .7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev); color: var(--text); font: inherit; cursor: pointer; }
 .tag.active { border-color: var(--accent-2); background: var(--bg-elev); color: var(--text); }
 button.tag { appearance: none; -webkit-appearance: none; }
@@ -102,6 +156,9 @@ button.tag { appearance: none; -webkit-appearance: none; }
 .interests, .ai-ml { color: var(--accent-2); font-family: Consolas; font-size: 20px; }
 .interests h2, .ai-ml h2 { color: var(--accent-1); font-family: Consolas; }
 .interests p, .ai-ml p { color: var(--accent-1); }
+
+.projects, .now { color: var(--accent-2); font-family: Consolas; font-size: 20px; }
+.projects h2, .projects h3, .now h2 { color: var(--accent-1); font-family: Consolas; }
 
 .interests .pill-list li { 
     border-color: var(--accent-2);
@@ -126,18 +183,6 @@ button.tag { appearance: none; -webkit-appearance: none; }
 }
 @media (prefers-reduced-motion: reduce) {
     .wave-title .wave-char { animation: none; }
-}
-
-.rl-work {
-    color: var(--accent-2);
-    font-family: Consolas;
-    font-size: 20px;
-}
-
-.rl-work h2,
-.rl-work h3 {
-    color: var(--accent-1);
-    font-family: Consolas;
 }
 
 .cards {
@@ -174,6 +219,43 @@ button.tag { appearance: none; -webkit-appearance: none; }
     margin: 0.75rem 0 1.25rem;
 }
 
+@media (max-width: 700px) {
+    .data-table { min-width: 0; }
+    .data-table thead { display: none; }
+    .data-table,
+    .data-table tbody,
+    .data-table tr,
+    .data-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .data-table tr {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 0 0 1rem;
+        background: var(--bg-elev);
+    }
+
+    .data-table td {
+        border: 0;
+        border-bottom: 1px solid var(--border);
+        padding: 0.6rem 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .data-table td::before {
+        content: attr(data-label);
+        color: var(--text-muted);
+        flex: 0 0 auto;
+    }
+
+    .data-table td:last-child { border-bottom: 0; }
+}
+
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -207,4 +289,69 @@ button.tag { appearance: none; -webkit-appearance: none; }
     margin-top: 0.5rem;
     opacity: 0.85;
     font-size: 0.95rem;
+}
+
+.site-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.footer-links a {
+    font-family: Consolas, 'Liberation Mono', 'Courier New', monospace;
+    text-decoration: none;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg-elev);
+    color: var(--text);
+}
+
+.footer-links a:hover {
+    border-color: var(--accent-2);
+}
+
+.footer-meta {
+    margin: 1rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+@media print {
+    :root {
+        --bg: #ffffff;
+        --bg-elev: #ffffff;
+        --text: #000000;
+        --text-muted: #222222;
+        --border: #cccccc;
+        --accent-1: #000000;
+        --accent-2: #111111;
+    }
+
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    .site-nav,
+    .filters,
+    .life-updates [data-action="toggle-updates"] {
+        display: none;
+    }
+
+    section {
+        border-top: 0;
+        padding-top: 0;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: underline;
+    }
 }

@@ -3,16 +3,38 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Personal site of Carlos Torres: projects, life updates, and resume.">
+    <meta name="description" content="Personal site of Carlos Torres: projects, notes, life updates, and resume.">
+    <meta property="og:title" content="Carlos Torres">
+    <meta property="og:description" content="Projects, RL notes, life updates, and resume.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carlostorres18.github.io/">
+    <meta property="og:image" content="assets/img/coding.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Carlos Torres">
+    <meta name="twitter:description" content="Projects, RL notes, life updates, and resume.">
+    <meta name="twitter:image" content="assets/img/coding.png">
     <title>Carlos Torres Personal Website</title>
-    <link rel="stylesheet" href="app.css">
-    <link rel="icon" href="coding.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="icon" href="assets/img/coding.png">
 </head>
 <body>
     <main class="container">
+        <nav class="site-nav" aria-label="Primary">
+            <a class="brand" href="index.html" aria-label="Home">CT</a>
+            <a href="#projects">Projects</a>
+            <a href="notes.html">Notes</a>
+            <a href="senior-project.html">Senior Project</a>
+            <a href="contact.html">Contact</a>
+            <a href="#updates">Updates</a>
+            <a href="assets/docs/Carlos_s_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        </nav>
         <h1 class="wave-title">Hello, I'm Carlos!</h1>
+        <p class="tagline">CS @ UTRGV · Graduating Fall 2026 · Currently: RL (PPO)</p>
 
-        <section class="whoami">
+        <section class="whoami" id="about">
             <p>I am a Computer Science Student at the University of Texas of the Rio Grande Valley (UTRGV).</p>
             <p>I enjoy running, watching sci-fi, fantasy movies, playing videogames, and spending time with my family, friends and my dog Maya.</p>
             <p>On this website you will be able to learn about me, read about recent developments of my life <br>
@@ -27,19 +49,26 @@
                 <li>Videogames</li>
                 <li>Time with Family & Friends</li>
             </ul>
-            <p>Current goals: run a 5K under 25 minutes, Deploy an AI Application, and Watch Dune for the first time.</p>
+            <p>Current goals: keep learning Reinforcement Learning, start an RL research project, brainstorm Senior Project research questions, and finish reading The Count of Monte Cristo.</p>
         </section>
 
         <section class="my-coding-journey">
             <h2 id="coding-journey">Carlos' Coding Journey</h2>
-            <p>I started learning about Programming in my senior year of High School, and was eager to learn more about it,
-            so I applied to my local University with Computer Science as my major.</p>
-            <p>So far I have faced many hardships in this journey but I don't have any regrets.<br>
-            I am going to do my very best to have fun, and learn more about Programming.</p>
+            <p>I started learning programming in my senior year of high school, and I was eager to keep going, so I applied to my local university as a Computer Science major.</p>
+            <p>So far, this journey has come with a lot of challenges, but I have no regrets. I'm going to do my best to have fun and keep learning.</p>
         </section>
 
-        <section class="rl-work">
-            <h2 id="rl">Reinforcement Learning</h2>
+        <section class="now">
+            <h2 id="now">Now</h2>
+            <ul class="compact-list">
+                <li><strong>Learning</strong>: Reinforcement Learning and training agents (PPO)</li>
+                <li><strong>Research</strong>: Attending UTRGV Machine/AI Lab meetings and learning how to read papers</li>
+                <li><strong>Building</strong>: Setting up a consistent experimentation workflow with TensorBoard</li>
+            </ul>
+        </section>
+
+        <section class="projects" id="projects">
+            <h2>Projects</h2>
 
             <div class="cards">
                 <article class="card">
@@ -48,6 +77,8 @@
                         <li><strong>Approach</strong>: Proximal Policy Optimization (PPO)</li>
                         <li><strong>Learning</strong>: Hyperparameter sensitivity, training stability, iteration workflow</li>
                         <li><strong>Tracking</strong>: TensorBoard for reward curves and training diagnostics</li>
+                        <li><strong>Page</strong>: <a href="projects/lunarlander.html">details</a></li>
+                        <li><strong>Repo</strong>: Coming soon</li>
                     </ul>
                 </article>
 
@@ -57,6 +88,8 @@
                         <li><strong>Status</strong>: Starting next</li>
                         <li><strong>Goal</strong>: Build intuition for policy learning and evaluation</li>
                         <li><strong>Focus</strong>: Learning curves, variance across seeds, stability</li>
+                        <li><strong>Page</strong>: <a href="projects/cartpole.html">details</a></li>
+                        <li><strong>Repo</strong>: Coming soon</li>
                     </ul>
                 </article>
             </div>
@@ -76,19 +109,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>LunarLander</td>
-                            <td>PPO</td>
-                            <td>3M</td>
-                            <td>2048</td>
-                            <td>128</td>
-                            <td>Mean reward 297.73 ± 15.27 (8 epochs)</td>
+                            <td data-label="Environment">LunarLander</td>
+                            <td data-label="Algorithm">PPO</td>
+                            <td data-label="Timesteps">3M</td>
+                            <td data-label="n_steps">2048</td>
+                            <td data-label="Batch">128</td>
+                            <td data-label="Result">Mean reward 297.73 ± 15.27 (8 epochs)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <figure class="media">
-                <img src="Tensorboard Screenshot for Website.png" alt="TensorBoard training screenshot" loading="lazy">
+                <picture>
+                    <source srcset="assets/img/tensorboard.webp" type="image/webp">
+                    <img src="assets/img/tensorboard.png" width="2938" height="1814" alt="TensorBoard training screenshot" loading="lazy">
+                </picture>
                 <figcaption>TensorBoard snapshot used to monitor training runs.</figcaption>
             </figure>
         </section>
@@ -103,28 +139,26 @@
             </ol>
         </section>
 
-        <section class="my-resume">
-            <p>This is my resume: <a href="Carlos_s_Resume.pdf" target="_blank" rel="noopener noreferrer">resume</a></p>
-        </section>
-
         <section class="life-updates">
-            <h2>Updates</h2>
+            <h2 id="updates">Updates</h2>
             <div class="filters">
                 <button class="tag active" data-filter="all">All</button>
                 <button class="tag" data-filter="ai">AI</button>
                 <button class="tag" data-filter="web">Web</button>
                 <button class="tag" data-filter="school">School</button>
                 <button class="tag" data-filter="personal">Personal</button>
-                <button class="tag" data-filter="python">Python</button>
             </div>
-            <details data-tags="ai,school,personal">
+            <button class="tag" type="button" data-action="toggle-updates">Show all updates</button>
+            <details data-tags="ai,school,personal" open>
                 <summary>Update: February 26, 2026</summary>
+                <p class="update-subtitle">RL research · UTRGV lab meetings · Senior project planning</p>
                 <p>Lately I've been getting more interested in the research side of Machine Learning, especially Reinforcement Learning and what it takes to train agents through RL.</p>
                 <p>I've also started taking initiative and attending the Machine Learning meetings my professor holds for the Machine/AI Lab at UTRGV. I've been taking advice from my professors as well as PhD and Masters students on how to get started, what to focus on, and how to build a stronger foundation for understanding ML and research as a whole.</p>
                 <p>I also finally got a team for my Senior Project, which I'll be doing in my last semester of University (next semester). For our Senior Project we want to take a research approach and write and publish a paper on Reinforcement Learning and Federated Learning.</p>
             </details>
             <details data-tags="ai,personal,school">
                 <summary>Update: November 04, 2025</summary>
+                <p class="update-subtitle">Last year of school · AI courses · SWE project</p>
                 <p>WOW Almost a whole year lol (great going me from the past). I just wanted to update you all with my life update.</p>
                 <p>Everything is going great, I am in my last semesters of University, I have an expected graduation date for Fall 2026, so in 1 year I will be graduating. This is both exciting and scary to think about.<br>
                     I have sign up to my next set of courses, now I will be diving head-first (lol) into AI related Courses. I have registered for Automata, AI Application Agents, and Digital Visions. I honestly can't wait to get started on them.
@@ -133,28 +167,41 @@
             </details>
             <details data-tags="school,web">
                 <summary>Update: December 16, 2024</summary>
+                <p class="update-subtitle">Finals done · Planning next semester · Website updates</p>
                 <p>Finals week was last week, now I am officially out of school, I ended up passing all of my classes.</p>
                 <p>Right now my main focus is to prepare for my next set of classes and what type of topics the class will cover.<br>
                 I will continue to also focus on working on this website and personal projects as I have already started a CSS course, and also a JavaScript course.</p>
             </details>
             <details data-tags="web,personal">
                 <summary>Update: December 05, 2024</summary>
+                <p class="update-subtitle">Semester wrap-up · Website work · Icons</p>
                 <p>My semester just finished yesterday (Dec 04) and the last thing i have to do is just a security project. <br><br> After that I will be working now more on this Personal Website and Personal Projects.</p>
                 <p>I also added Icons to the website, so the LIFE UPDATE section has icons, and also the title page.</p>
             </details>
             <details data-tags="web,personal">
                 <summary>Update: May 20, 2024</summary>
+                <p class="update-subtitle">Back to coding · Website improvements · Personal projects</p>
                 <p>I got out of school for at least 2 weeks now, and had been on a break from coding. I decided to start working again on the website.</p>
                 <p>I have realized that it is time for me to start getting serious and lock in (lol) but anyways I will add a JavaScript to the folder so that I can decorate this website to my liking.</p>
                 <p>Update on application: I am still working on it, just came to a mental block on what steps to take next, but I'll be fine, I just have to devote my attention to it. Will update when something interesting happens.</p>
             </details>
-            <details data-tags="python,desktop,project">
+            <details data-tags="desktop,project">
                 <summary>Update: April 14, 2024</summary>
+                <p class="update-subtitle">Python · Desktop app · Password manager</p>
                 <p>I started developing a desktop application using PyQt6, basically desktops development but with Python</p>
                 <p>The application is a password manager, something basic so I can get started on what I want to do</p>
             </details>
         </section>
+
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a href="mailto:torresespinozacarlosdaniel@gmail.com">torresespinozacarlosdaniel@gmail.com</a>
+                <a href="https://github.com/carlostorres18" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/carloslostorres18/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <p class="footer-meta">Last updated: February 27, 2026</p>
+        </footer>
     </main>
-    <script src="main.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
